@@ -31,7 +31,7 @@
 */
 
 - (void)startTiming {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.timingSeconds target:self selector:@selector(updateTimer:) userInfo:nil repeats:NO];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer:) userInfo:nil repeats:NO];
     
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
@@ -43,9 +43,8 @@
 #pragma mark ------------- Custom -------------
 - (void)updateTimer:(NSTimer *)startTimer {
     NSTimeInterval timeDiff = [[NSDate date] timeIntervalSinceDate:self.startCountDate];
-    NSDate *timeToShow = [NSDate date];
 
-    [self setTitle:[NSString stringWithFormat:@"%f", timeDiff] forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"%.0f", timeDiff] forState:UIControlStateNormal];
     
 
 }

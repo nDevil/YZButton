@@ -27,6 +27,7 @@
 }
 
 - (IBAction)timerButtonClicked:(YZTimerButton *)sender {
+    sender.timingSeconds = 10;
     [sender startTiming];
 }
 
